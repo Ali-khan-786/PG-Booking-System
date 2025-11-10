@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2 class="mb-4">Rooms in {{ property.name }}</h2>
+
+<a href="/owner/property/{{ property.id }}/room/add" class="btn btn-primary mb-3">Add New Room</a>
+
+<table class="table table-bordered">
+  <tr>
+    <th>Room No</th>
+    <th>Type</th>
+    <th>Capacity</th>
+    <th>Rent</th>
+    <th>Deposit</th>
+    <th>Status</th>
+  </tr>
+
+  {% for r in rooms %}
+  <tr>
+    <td>{{ r.room_no }}</td>
+    <td>{{ r.room_type }}</td>
+    <td>{{ r.bed_capacity }}</td>
+    <td>{{ r.rent }}</td>
+    <td>{{ r.deposit }}</td>
+    <td>{{ "Active" if r.is_active else "Inactive" }}</td>
+  </tr>
+  {% endfor %}
+</table>
+
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2 class="mb-4 text-center">Pay Rent</h2>
+
+<p><strong>Property:</strong> {{ booking.property_name }}</p>
+<p><strong>Room No:</strong> {{ booking.room_no }}</p>
+<p><strong>Amount:</strong> ₹{{ booking.amount }}</p>
+
+<form method="POST">
+
+  <div class="mb-3">
+    <label class="form-label">Payment Method</label>
+    <select name="method" class="form-control" required>
+      <option value="upi">UPI</option>
+      <option value="cash">Cash</option>
+      <option value="card">Card</option>
+      <option value="bank">Bank Transfer</option>
+      <option value="mock">Mock Payment</option>
+    </select>
+  </div>
+
+  <button type="submit" class="btn btn-primary w-100">Make Payment</button>
+
+</form>
+
+{% endblock %}

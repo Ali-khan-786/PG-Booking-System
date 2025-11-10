@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2 class="mb-4 text-center">My Bookings</h2>
+
+<table class="table table-bordered">
+  <tr>
+    <th>Property</th>
+    <th>Room No</th>
+    <th>Start Date</th>
+    <th>End Date</th>
+    <th>Status</th>
+    <th>Next Step</th>   <!-- NEW COLUMN -->
+  </tr>
+
+  {% for b in bookings %}
+  <tr>
+    <td>{{ b.property_name }}</td>
+    <td>{{ b.room_no }}</td>
+    <td>{{ b.start_date }}</td>
+    <td>{{ b.end_date if b.end_date else "-" }}</td>
+    <td>{{ b.status }}</td>
+
+    <td>
+      {% if b.status == 'checked_in' %}
+
+        {% if b.payment_status == 'paid' %}
+            <span class="badge bg-success">Paid</span>
+        {% else %}
+            <a href="/student/pay/{{ b.id }}" class="btn btn-success btn-sm">Pay Rent</a>
+        {% endif %}
+
+      {% else %}
+        -
+      {% endif %}
+
+    </td>
+
+
+    <!-- NEW STATUS-AWARE COLUMN -->
+    <td>
+      {% if b.status == 'approved' %}
+        Awaiting Check-In
+      {% elif b.status == 'checked_in' %}
+        Checked-In
+      {% elif b.status == 'checked_out' %}
+        Completed
+      {% elif b.status == 'rejected' %}
+        Rejected
+      {% else %}
+        -
+      {% endif %}
+    </td>
+
+  </tr>
+  {% endfor %}
+</table>
+
+{% endblock %}
+

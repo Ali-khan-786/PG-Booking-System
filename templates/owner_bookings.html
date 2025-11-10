@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2 class="mb-4 text-center">Booking Requests</h2>
+
+<table class="table table-bordered">
+  <tr>
+    <th>Student</th>
+    <th>Property</th>
+    <th>Room No</th>
+    <th>Start Date</th>
+    <th>Status</th>
+    <th>Actions</th>
+  </tr>
+
+  {% for b in bookings %}
+  <tr>
+    <td>{{ b.student_name }}</td>
+    <td>{{ b.property_name }}</td>
+    <td>{{ b.room_no }}</td>
+    <td>{{ b.start_date }}</td>
+    <td>{{ b.status }}</td>
+    <td>
+      {% if b.status == 'pending' %}
+        <a href="/owner/booking/{{ b.id }}/approve" class="btn btn-success btn-sm">Approve</a>
+        <a href="/owner/booking/{{ b.id }}/reject" class="btn btn-danger btn-sm">Reject</a>
+
+      {% elif b.status == 'approved' %}
+        <a href="/owner/booking/{{ b.id }}/checkin" class="btn btn-primary btn-sm">Check-In</a>
+
+      {% elif b.status == 'checked_in' %}
+        <a href="/owner/booking/{{ b.id }}/checkout" class="btn btn-warning btn-sm">Check-Out</a>
+
+      {% else %}
+        -
+      {% endif %}
+    </td>
+  </tr>
+  {% endfor %}
+</table>
+
+{% endblock %}

@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2 class="mb-4 text-center">Payment History</h2>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Student</th>
+      <th>Property</th>
+      <th>Room No</th>
+      <th>Amount</th>
+      <th>Method</th>
+      <th>Status</th>
+      <th>Paid At</th>
+      <th>Transaction Ref</th>
+    </tr>
+  </thead>
+
+  <tbody>
+  {% for p in payments %}
+    <tr>
+      <td>{{ p.student_name }}</td>
+      <td>{{ p.property_name }}</td>
+      <td>{{ p.room_no }}</td>
+      <td>₹{{ p.amount }}</td>
+      <td>{{ p.method }}</td>
+      <td>{{ p.status }}</td>
+      <td>{{ p.paid_at if p.paid_at else "-" }}</td>
+      <td>{{ p.txn_ref if p.txn_ref else "-" }}</td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+
+{% endblock %}

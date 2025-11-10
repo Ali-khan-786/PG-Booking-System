@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2 class="mb-4 text-center">My Properties</h2>
+
+<a href="/owner/property/add" class="btn btn-primary mb-3">Add New Property</a>
+
+<table class="table table-bordered">
+  <tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>City</th>
+    <th>Action</th>
+  </tr>
+
+  {% for p in props %}
+  <tr>
+    <td>{{ p.id }}</td>
+    <td>{{ p.name }}</td>
+    <td>{{ p.city }}</td>
+    <td>
+      <a href="/owner/property/{{ p.id }}/rooms" class="btn btn-sm btn-secondary">View Rooms</a>
+    </td>
+  </tr>
+  {% endfor %}
+</table>
+
+{% endblock %}

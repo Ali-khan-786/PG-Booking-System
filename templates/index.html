@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="text-center mt-5">
+    <h1 class="mb-4">Welcome to PG Booking System</h1>
+
+    <a href="/login/student" class="btn btn-primary btn-lg m-2">Student Login</a>
+    <a href="/login/owner" class="btn btn-secondary btn-lg m-2">Owner Login</a>
+    <a href="/register" class="btn btn-success btn-lg m-2">Register</a>
+</div>
+
+<!-- About Section -->
+<div class="container mt-5" style="max-width: 900px;">
+    <div class="p-4 bg-light border rounded">
+        <h4>About Site</h4>
+        <p>
+            The PG Booking Management System is designed to simplify and automate the process 
+            of booking PG and hostel rooms. Students can browse available properties, book rooms, 
+            track booking approvals, check-in status, and make payments securely.
+        </p>
+        <p>
+            On the other side, Property Owners can manage their PG listings, approve booking 
+            requests, monitor room occupancy, and review payment history from students. 
+        </p>
+    </div>
+</div>
+
+{% endblock %}

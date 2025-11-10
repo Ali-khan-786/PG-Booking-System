@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2 class="mb-4 text-center">Add Room</h2>
+
+<form method="POST">
+
+  <div class="mb-3">
+    <label class="form-label">Room Number</label>
+    <input type="text" name="room_no" class="form-control" required>
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label">Room Type</label>
+    <select name="room_type" class="form-control" required>
+        <option value="single">Single</option>
+        <option value="double">Double</option>
+        <option value="triple">Triple</option>
+        <option value="dorm">Dorm</option>
+    </select>
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label">Bed Capacity</label>
+    <input type="number" name="bed_capacity" min="1" class="form-control" required>
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label">Rent (per month)</label>
+    <input type="number" name="rent" class="form-control" required>
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label">Deposit</label>
+    <input type="number" name="deposit" class="form-control" required>
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label">Sharing Type</label>
+    <select name="sharing" class="form-control" required>
+        <option value="private">Private</option>
+        <option value="shared">Shared</option>
+    </select>
+  </div>
+
+  <button type="submit" class="btn btn-success w-100">Add Room</button>
+</form>
+
+{% endblock %}

@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2 class="mb-4 text-center">Owner Dashboard</h2>
+
+<div class="container" style="max-width: 500px;">
+
+    <a href="/owner/properties" class="btn btn-primary w-100 mb-3">
+        My Properties
+    </a>
+
+    <a href="/owner/bookings" class="btn btn-secondary w-100 mb-3">
+        Bookings
+    </a>
+
+    <a href="/owner/payments" class="btn btn-success w-100 mb-3">
+        Payments
+    </a>
+    <a href="/logout" class="btn btn-danger w-100 mt-3">Logout</a>
+
+
+</div>
+
+{% endblock %}

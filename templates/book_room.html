@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2 class="mb-4">Book Room {{ room.room_no }}</h2>
+
+<form method="POST">
+
+  <div class="mb-3">
+    <label class="form-label">Check-in Date</label>
+    <input type="date" name="check_in" class="form-control" required>
+  </div>
+
+  <button type="submit" class="btn btn-success w-100">Submit Booking Request</button>
+
+</form>
+
+{% endblock %}

@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2 class="mb-4 text-center">Available PG Properties</h2>
+
+<table class="table table-bordered">
+  <tr>
+    <th>Name</th>
+    <th>City</th>
+    <th>Action</th>
+  </tr>
+
+  {% for p in props %}
+  <tr>
+    <td>{{ p.name }}</td>
+    <td>{{ p.city }}</td>
+    <td>
+      <a href="/student/property/{{ p.id }}/rooms" class="btn btn-sm btn-primary">View Rooms</a>
+    </td>
+  </tr>
+  {% endfor %}
+</table>
+
+{% endblock %}
