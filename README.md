@@ -77,7 +77,7 @@ sql/pg_booking.sql
 ## 🚀 How to Run the Project Locally
 
 ### 1. Clone the repository
-git clone <link for the files](https://github.com/Ali-khan-786/PG-Booking-System)>
+git clone <[link for the files](https://github.com/Ali-khan-786/PG-Booking-System)>
 cd PG-Booking-System
 
 ### 2. Create a Virtual Environment
